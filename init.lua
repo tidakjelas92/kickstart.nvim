@@ -5,7 +5,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = true
+vim.g.have_nerd_font = false
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -216,10 +216,10 @@ require('lazy').setup({
 		'lewis6991/gitsigns.nvim',
 		opts = {
 			signs = {
-				-- add = { text = '+' },
-				-- change = { text = '~' },
-				-- delete = { text = '_' },
-				delete = { text = '󰍵' },
+				add = { text = '+' },
+				change = { text = '~' },
+				delete = { text = '_' },
+				-- delete = { text = '󰍵' },
 				topdelete = { text = '‾' },
 				changedelete = { text = '~' },
 			},
@@ -395,6 +395,10 @@ require('lazy').setup({
 		config = function()
 			require('kanagawa').setup({
 				colors = {
+					palette = {
+						dragonAsh = "#697269",
+						dragonBlack6 = "#3a3632",
+					},
 					theme = {
 						all = {
 							ui = {
