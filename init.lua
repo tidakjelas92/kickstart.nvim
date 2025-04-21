@@ -402,25 +402,15 @@ require('lazy').setup({
   },
 
 	{
-		"rebelot/kanagawa.nvim",
+		"sainnhe/gruvbox-material",
+		lazy = false,
+		priority = 1000,
 		config = function()
-			require('kanagawa').setup({
-				colors = {
-					palette = {
-						dragonAsh = "#697269",
-						dragonBlack6 = "#3a3632",
-					},
-					theme = {
-						all = {
-							ui = {
-								bg_gutter = "none"
-							}
-						}
-					}
-				}
-			})
-			vim.cmd.colorscheme "kanagawa-dragon"
-	end,
+			vim.g.gruvbox_material_background = "hard"
+			vim.g.gruvbox_material_enable_bold = 1
+			vim.g.gruvbox_material_enable_italic = 1
+			vim.cmd.colorscheme "gruvbox-material"
+		end,
 	},
 
 	{
