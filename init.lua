@@ -90,6 +90,12 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+-- disable modeline so no unexpected behaviour
+vim.opt.modeline = false
+
+-- dont touch tabstops and stuff!
+vim.g.gdscript_recommended_style = 0
+
 vim.opt.expandtab = false
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
