@@ -180,6 +180,39 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 	end,
 })
 
+-- Override gruvbox material colors here
+vim.api.nvim_create_autocmd("ColorScheme", {
+	group = vim.api.nvim_create_augroup("custom_highlights_gruvboxmaterial", {}),
+	pattern = "gruvbox-material",
+	callback = function()
+		local config = vim.fn["gruvbox_material#get_configuration"]()
+		local palette = vim.fn["gruvbox_material#get_palette"](config.background, config.foreground, config.colors_override)
+		local set_hl = vim.fn["gruvbox_material#highlight"]
+
+		set_hl('TSConditional', palette.purple, palette.none)
+		set_hl('TSConstant', palette.orange, palette.none)
+		set_hl('TSField', palette.red, palette.none)
+		set_hl('TSFuncMacro', palette.blue, palette.none, 'bold')
+		set_hl('TSFunction', palette.blue, palette.none, 'bold')
+		set_hl('TSFunctionCall', palette.blue, palette.none)
+		set_hl('TSInclude', palette.purple, palette.none)
+		set_hl('TSKeyword', palette.purple, palette.none)
+		set_hl('TSKeywordOperator', palette.fg0, palette.none)
+		set_hl('TSKeywordReturn', palette.purple, palette.none)
+		set_hl('TSMethod', palette.blue, palette.none, 'bold')
+		set_hl('TSMethodCall', palette.blue, palette.none)
+		set_hl('TSNumber', palette.orange, palette.none)
+		set_hl('TSOperator', palette.fg0, palette.none)
+		set_hl('TSParameter', palette.red, palette.none)
+		set_hl('TSParameterReference', palette.red, palette.none)
+		set_hl('TSProperty', palette.red, palette.none)
+		set_hl('TSPunctBracket', palette.orange, palette.none)
+		set_hl('TSType', palette.yellow, palette.none)
+		set_hl('TSTypeBuiltin', palette.yellow, palette.none)
+		set_hl('TSTypeDefinition', palette.yellow, palette.none)
+	end,
+})
+
 -- [[projectrc]]
 -- Per-project configuration, only runs when "projectrc.lua" is found in the root dir.
 -- Plugin requirements:
