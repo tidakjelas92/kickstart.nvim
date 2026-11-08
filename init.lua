@@ -140,7 +140,9 @@ vim.keymap.set("v", "<A-k>", ":move '<-2<CR>gv=gv'", { silent = true, desc = "Mo
 
 vim.keymap.set("n", "<Tab>", ":bnext<CR>", { silent = true, desc = "next buffer" })
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { silent = true, desc = "previous buffer" })
-vim.keymap.set("n", "<leader>x", ":bd<CR>", { silent = true, desc = "close buffer" })
+-- vim.keymap.set("n", "<leader>x", ":bd<CR>", { silent = true, desc = "close buffer" })
+-- NOTE: this version is the workaround that closes the buffer without closing the window
+vim.keymap.set("n", "<leader>x", ":bp<bar>sp<bar>bn<bar>bd<CR>", { silent = true, desc = "close buffer" })
 
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
